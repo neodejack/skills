@@ -1,5 +1,12 @@
 some simple skills for my own use
 
+---
+
+`gh-brew-tap`: create a personal homebrew formula from GitHub Releases that publish pre-built tar.gz binaries.
+`update-brew-formula`: bump a homebrew tap formula to the latest version.
+
+---
+
 if you wanna try it out and happen to use codex, do this
 
 ```bash
