@@ -14,6 +14,16 @@ gh release view TAG -R OWNER/REPO --json tagName,assets,publishedAt,url
 
 The `assets` array includes `name`, `size`, and `url` fields. Filter to `.tar.gz` files.
 
+## Resolve OWNER/REPO
+
+From a local repo path:
+```
+git remote get-url origin
+gh repo view --json nameWithOwner -q .nameWithOwner
+```
+
+From a GitHub URL, parse OWNER/REPO (e.g., https://github.com/OWNER/REPO.git).
+
 ## Find similar formulae (reference only)
 
 Homebrew keeps formulae in the `homebrew/core` tap. To search formulas locally:
@@ -59,6 +69,12 @@ If the tap repo doesn't exist yet, prefer this flow:
 GITHUB_USER=$(gh api user --jq .login)
 brew tap-new "$GITHUB_USER/homebrew-tap"
 gh repo create "$GITHUB_USER/homebrew-tap" --push --public --source "$(brew --repository "$GITHUB_USER/homebrew-tap")"
+```
+
+## Clone an existing tap repo
+
+```
+gh repo clone OWNER/TAP
 ```
 
 ## Create a formula scaffold (optional)
