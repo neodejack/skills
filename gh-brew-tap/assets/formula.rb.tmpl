@@ -1,0 +1,17 @@
+class {{FORMULA_CLASS}} < Formula
+  desc "{{DESC}}"
+  homepage "{{HOMEPAGE}}"
+  version "{{VERSION}}"
+
+  {{LICENSE_LINE}}
+
+  {{URL_BLOCKS}}
+
+  def install
+    bin.install "{{BINARY_PATH}}"
+  end
+
+  test do
+    system "#{bin}/{{BINARY_NAME}}", "--version"
+  end
+end
