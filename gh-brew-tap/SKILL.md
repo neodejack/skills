@@ -23,6 +23,7 @@ description: Create or update personal Homebrew taps and formulae from GitHub Re
 10. Write a meaningful `test do` block for the formula.
 11. Run `brew install --build-from-source <formula>` to confirm the formula installs cleanly; fix any errors and retry.
 12. Run `brew audit --strict --new --online <formula>` and `brew test <formula>` to ensure the formula passes audits and tests.
+13. Use git to commit and push the new formula to the tap repo remote.
 
 ## Use these references
 
