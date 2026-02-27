@@ -1,6 +1,6 @@
 ---
 name: writing-justfiles
-description: "Writes and maintains justfile recipes for project automation. Use when asked to create a justfile, add just recipes, or automate project commands with the just command runner."
+description: "Create, edit, and maintain `justfile` automation for any codebase using the `just` command runner. Trigger whenever a request involves creating a new `justfile`, modifying/updating an existing `justfile`, adding or changing recipes, refactoring `justfile` structure, or automating project commands via `just`."
 ---
 
 # Writing Justfiles
