@@ -292,6 +292,7 @@ version:
 
 - Use 4-space indentation (required by `just --fmt`).
 - Run `just --fmt --unstable` to auto-format the justfile.
+- **After editing a justfile, always run `just --fmt --check --unstable` to verify formatting.** If it reports errors, run `just --fmt --unstable` to fix them automatically.
 - Keep recipes short; extract complex logic into shell scripts.
 - Add a blank line between recipes for readability.
 
