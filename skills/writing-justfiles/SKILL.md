@@ -159,16 +159,16 @@ Declare settings at the top of the justfile:
 
 ```just
 # load .env file automatically
-set dotenv-load
+set dotenv-load := true
 
 # use bash instead of sh
 set shell := ["bash", "-cu"]
 
 # suppress command echoing by default
-set quiet
+set quiet := true
 
 # search parent directories for recipes not found locally
-set fallback
+set fallback := true
 ```
 
 ## Variables & Expressions
