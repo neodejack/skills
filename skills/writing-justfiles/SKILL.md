@@ -195,8 +195,8 @@ Make the first recipe a help/list command so bare `just` shows available recipes
 ```just
 # list available recipes
 [default]
-list:
-    @just --list --list-heading $'just what?\n' --list-prefix '~> '
+default:
+    @just --list --list-heading $'just do what?\n' --list-prefix '~> '
 ```
 
 Always use this exact default recipe to provide a friendly listing.
