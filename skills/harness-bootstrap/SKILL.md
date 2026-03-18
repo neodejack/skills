@@ -17,7 +17,7 @@ Prepare an existing repository for mixed human and agent coding. Audit the repo,
 2. Decide the minimum bootstrap set.
    - Create or update only what the repo is missing.
    - Bootstrap these artifacts unless the repo already has an equivalent:
-     - Root `AGENTS.md` with repo map, canonical commands, task routing, verification expectations, and an `ExecPlans` section.
+     - Root `AGENTS.md` with canonical commands, docs navigation, verification expectations, and an `ExecPlans` section.
      - `docs/ARCHITECTURE.md` when the codebase has important structure or boundaries that are not obvious from code.
      - `docs/PLANS.md`, copied from this skill's `assets/docs/exec-plans/PLAN.md`.
      - `docs/exec-plans/` with `todo/`, `active/`, and `completed/` for storing long-running task plans by status.
@@ -26,13 +26,19 @@ Prepare an existing repository for mixed human and agent coding. Audit the repo,
    - Treat CI and scripts as enforcement layers, not prose. If a rule must never be skipped, encode it in automation instead of documenting it only in Markdown.
 
 3. Write repo-local guidance.
-   - Keep `AGENTS.md` short and concrete.
+   - Keep `AGENTS.md` short, operational, and concrete.
+   - Do not put the repo map in `AGENTS.md`. Point agents to `docs/ARCHITECTURE.md` for the code map and structural orientation.
    - Include:
      - how to boot the project
      - how to run lint, typecheck, test, and focused verification
-     - where important subsystems live
+     - how to navigate `docs/`
      - what files the agent should read before editing
      - project-specific constraints that are not obvious from code
+   - In the docs navigation guidance, explain what each document is for and when to read it. At minimum cover:
+     - `docs/ARCHITECTURE.md` for code structure, boundaries, and "where does X live?"
+     - `docs/PLANS.md` for the ExecPlan format and rules
+     - `docs/exec-plans/todo/`, `docs/exec-plans/active/`, and `docs/exec-plans/completed/` for long-running task plans by status
+     - any additional `docs/` pages created for design decisions or product rules
    - Add an `ExecPlans` section to `AGENTS.md` that tells agents to use an ExecPlan for complex features or significant refactors, points them to `docs/PLANS.md`, and explains the `docs/exec-plans/` status directories.
    - Keep `docs/ARCHITECTURE.md` structural. When writing or revising it, read `references/architecture-md.md` first and follow that shape:
      - start with a bird's-eye overview of the problem and system
