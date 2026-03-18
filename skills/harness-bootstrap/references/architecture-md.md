@@ -1,6 +1,6 @@
 # ARCHITECTURE.md Reference
 
-Use this reference when writing or revising a repository `ARCHITECTURE.md`.
+Use this reference when writing or revising `docs/ARCHITECTURE.md` in a repository.
 
 Source:
 - https://matklad.github.io/2021/02/06/ARCHITECTURE.md.html

@@ -18,23 +18,23 @@ Prepare an existing repository for mixed human and agent coding. Audit the repo,
    - Create or update only what the repo is missing.
    - Bootstrap these artifacts unless the repo already has an equivalent:
      - Root `AGENTS.md` with repo map, canonical commands, task routing, verification expectations, and an `ExecPlans` section.
-     - `ARCHITECTURE.md` when the codebase has important structure or boundaries that are not obvious from code.
+     - `docs/ARCHITECTURE.md` when the codebase has important structure or boundaries that are not obvious from code.
      - `docs/PLANS.md`, copied from this skill's `assets/docs/exec-plans/PLAN.md`.
      - `docs/exec-plans/` with `todo/`, `active/`, and `completed/` for storing long-running task plans by status.
-      - Focused `docs/` pages for product rules and design decisions when the repo needs more than a short root guide.
-      - Small automation in the repo's existing runner only when command discovery is poor.
+     - Focused `docs/` pages for product rules and design decisions when the repo needs more than a short root guide.
+     - Small automation in the repo's existing runner only when command discovery is poor.
    - Treat CI and scripts as enforcement layers, not prose. If a rule must never be skipped, encode it in automation instead of documenting it only in Markdown.
 
 3. Write repo-local guidance.
    - Keep `AGENTS.md` short and concrete.
    - Include:
      - how to boot the project
-      - how to run lint, typecheck, test, and focused verification
-      - where important subsystems live
-      - what files the agent should read before editing
-      - project-specific constraints that are not obvious from code
+     - how to run lint, typecheck, test, and focused verification
+     - where important subsystems live
+     - what files the agent should read before editing
+     - project-specific constraints that are not obvious from code
    - Add an `ExecPlans` section to `AGENTS.md` that tells agents to use an ExecPlan for complex features or significant refactors, points them to `docs/PLANS.md`, and explains the `docs/exec-plans/` status directories.
-   - Keep `ARCHITECTURE.md` structural. When writing or revising it, read `references/architecture-md.md` first and follow that shape:
+   - Keep `docs/ARCHITECTURE.md` structural. When writing or revising it, read `references/architecture-md.md` first and follow that shape:
      - start with a bird's-eye overview of the problem and system
      - provide a coarse codemap that answers "where does X live?"
      - name important files, modules, and types without relying on brittle links
@@ -66,7 +66,7 @@ Prepare an existing repository for mixed human and agent coding. Audit the repo,
 Use this checklist to decide what to add:
 
 - Root `AGENTS.md`
-- `ARCHITECTURE.md`
+- `docs/ARCHITECTURE.md`
 - `docs/PLANS.md`
 - `docs/exec-plans/`
 - `docs/exec-plans/todo/`
@@ -89,7 +89,7 @@ Use this checklist to decide what to add:
 
 ## References
 
-- For `ARCHITECTURE.md`, read `references/architecture-md.md` before drafting or revising the document.
+- For `docs/ARCHITECTURE.md`, read `references/architecture-md.md` before drafting or revising the document.
 - For ExecPlans integration, read `references/exec-plans.md` and use this skill's `assets/docs/exec-plans/PLAN.md` as the source for the target repo's `docs/PLANS.md`.
 
 ## Output
