@@ -20,7 +20,7 @@ Prepare an existing repository for mixed human and agent coding. Audit the repo,
      - Root `AGENTS.md` with repo map, canonical commands, task routing, verification expectations, and an `ExecPlans` section.
      - `ARCHITECTURE.md` when the codebase has important structure or boundaries that are not obvious from code.
      - `docs/PLANS.md`, copied from this skill's `assets/docs/exec-plans/PLAN.md`.
-     - `docs/exec-plans/` for storing long-running task plans.
+     - `docs/exec-plans/` with `todo/`, `active/`, and `completed/` for storing long-running task plans by status.
       - Focused `docs/` pages for product rules and design decisions when the repo needs more than a short root guide.
       - Small automation in the repo's existing runner only when command discovery is poor.
    - Treat CI and scripts as enforcement layers, not prose. If a rule must never be skipped, encode it in automation instead of documenting it only in Markdown.
@@ -33,7 +33,7 @@ Prepare an existing repository for mixed human and agent coding. Audit the repo,
       - where important subsystems live
       - what files the agent should read before editing
       - project-specific constraints that are not obvious from code
-   - Add an `ExecPlans` section to `AGENTS.md` that tells agents to use an ExecPlan for complex features or significant refactors and points them to `docs/PLANS.md`.
+   - Add an `ExecPlans` section to `AGENTS.md` that tells agents to use an ExecPlan for complex features or significant refactors, points them to `docs/PLANS.md`, and explains the `docs/exec-plans/` status directories.
    - Keep `ARCHITECTURE.md` structural. When writing or revising it, read `references/architecture-md.md` first and follow that shape:
      - start with a bird's-eye overview of the problem and system
      - provide a coarse codemap that answers "where does X live?"
@@ -41,9 +41,9 @@ Prepare an existing repository for mixed human and agent coding. Audit the repo,
      - call out architectural invariants, boundaries, and cross-cutting concerns
      - keep it short and focused on stable structure rather than implementation detail
    - For ExecPlans:
-     - ensure `docs/exec-plans/` exists for storing plan files
+     - ensure `docs/exec-plans/todo/`, `docs/exec-plans/active/`, and `docs/exec-plans/completed/` exist
      - copy this skill's `assets/docs/exec-plans/PLAN.md` verbatim to the target repo as `docs/PLANS.md`
-     - prefer storing each long-running task plan as its own file under `docs/exec-plans/`
+     - store each long-running task plan as its own file under one of those status directories
    - Prefer repository-relative paths and real commands over abstract guidance.
 
 4. Tighten the verification path.
@@ -69,6 +69,9 @@ Use this checklist to decide what to add:
 - `ARCHITECTURE.md`
 - `docs/PLANS.md`
 - `docs/exec-plans/`
+- `docs/exec-plans/todo/`
+- `docs/exec-plans/active/`
+- `docs/exec-plans/completed/`
 - `docs/` pages for design decisions or execution-plan conventions
 - Canonical dev commands in the existing task runner
 - Clear verification commands for agent-authored changes

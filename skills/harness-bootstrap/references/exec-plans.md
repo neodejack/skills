@@ -12,8 +12,15 @@ When bootstrapping ExecPlans into a repository, prefer this layout:
 - `AGENTS.md`
 - `docs/PLANS.md`
 - `docs/exec-plans/`
+- `docs/exec-plans/todo/`
+- `docs/exec-plans/active/`
+- `docs/exec-plans/completed/`
 
-Use `docs/exec-plans/` to store one Markdown file per long-running task plan.
+Use the status directories to store one Markdown file per long-running task plan:
+
+- `docs/exec-plans/todo/` for planned work that has not started
+- `docs/exec-plans/active/` for work currently in progress
+- `docs/exec-plans/completed/` for finished plans kept for history
 
 For this skill, ExecPlans support is mandatory. Bootstrap the full layout unless the repository already has an equivalent structure.
 
@@ -29,6 +36,8 @@ Recommended snippet:
 
     When writing complex features or significant refactors, use an ExecPlan (as described in `docs/PLANS.md`) from design to implementation.
 
+    Store plans in `docs/exec-plans/` using `todo/`, `active/`, and `completed/` to reflect status.
+
 ## PLANS.md guidance
 
 The user requested that `docs/PLANS.md` match the official OpenAI text exactly. This skill vendors that text in `assets/docs/exec-plans/PLAN.md`.
@@ -42,6 +51,6 @@ When bootstrapping a target repository:
 ## Usage guidance
 
 - Create `docs/PLANS.md`.
-- Create `docs/exec-plans/` at the same time so the storage location is obvious.
+- Create `docs/exec-plans/todo/`, `docs/exec-plans/active/`, and `docs/exec-plans/completed/` at the same time so the storage location is obvious.
 - Reference `docs/PLANS.md` from `AGENTS.md`.
-- Store each plan as a separate Markdown file under `docs/exec-plans/`.
+- Store each plan as a separate Markdown file under the status directory that matches its current state.
