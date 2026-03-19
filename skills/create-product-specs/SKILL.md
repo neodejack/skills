@@ -1,5 +1,5 @@
 ---
-name: product-specs
+name: create-product-specs
 description: "Generate or refine repository-local product specification documents for proposed features through interactive discussion with the user. Use when a user describes a feature, workflow, or product behavior they want to build and Codex should ask clarifying questions, define scope, goals, user flows, requirements, and acceptance criteria, then save the result under `docs/product-specs/` such as `docs/product-specs/feature-name.md`. Also use when asked to spec out a feature, write a product spec, turn an idea into a spec, or update an existing product-spec doc."
 ---
 

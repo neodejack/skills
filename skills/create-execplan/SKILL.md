@@ -1,5 +1,5 @@
 ---
-name: execution-plan
+name: create-execplan
 description: "Create an ExecPlan from an existing repository-local product specification. Use when the user explicitly asks to create an exec-plan for a named product spec, for example `create a exec-plan product-spec-name`, and the corresponding spec lives under `docs/product-specs/`. Read `docs/product-specs/<product-spec-name>.md`, follow the repository's ExecPlan instructions in `docs/PLANS.md`, and write the resulting plan to `docs/exec-plans/todo/<product-spec-name>.md`. Use this skill for planning only, not for beginning implementation."
 ---
 
