@@ -56,6 +56,63 @@ Milestones are narrative, not bureaucracy. If you break the work into milestones
 
 Each milestone must be independently verifiable and incrementally implement the overall goal of the execution plan.
 
+### How to slice work into milestones
+
+Before drafting milestones, decompose the work explicitly. Do not skip this step. The quality of an ExecPlan depends far more on milestone shape than on prose polish. Apply the following rules in order.
+
+#### Rule 1: Map the dependency graph first
+
+Identify which pieces of the system depend on which. Walk the affected layers and write down, in plain prose, what must exist before what. A typical web feature has a graph shaped like this:
+
+    data layer (schema, migrations)
+        └── domain types / models
+                └── server endpoints / business logic
+                        └── client APIs / data fetching
+                                └── UI components / user-visible behavior
+
+The shape will differ by project — a CLI tool, a compiler pass, or a library has a different graph — but the principle is the same: list the prerequisites of each piece, then build foundations before things that rest on them. Record the graph as a short section of the `Plan of Work` so a novice reader can see why milestones are ordered the way they are.
+
+#### Rule 2: Slice vertically, not horizontally
+
+A horizontal slice builds one entire layer at a time (all of the schema, then all of the API, then all of the UI). This is forbidden. It produces milestones that cannot be independently verified, hides integration risk until the end, and violates the rule that each milestone must demonstrate user-visible behavior.
+
+A vertical slice builds one thin end-to-end path of behavior, touching every layer it needs to. Each milestone delivers something a user (or a calling program, or a test) can observably do that they could not do before.
+
+Concretely:
+
+- Bad milestones: "Build the database schema", "Build all API endpoints", "Build the UI", "Wire everything together".
+- Good milestones: "A user can register an account" (schema row + endpoint + form + test), "A user can log in" (auth tables + endpoint + form + test), "A user can create a task" (task table + endpoint + form + test).
+
+If a candidate milestone names a layer instead of a behavior, it is horizontal and must be re-cut.
+
+#### Rule 3: Order milestones by dependency, then by risk
+
+Once vertical slices are identified, order them so that:
+
+1. Each slice's prerequisites in the dependency graph already exist (built by an earlier slice or already in the repo).
+2. Slices carrying the most uncertainty come early. If a third-party library, a tricky algorithm, or an unproven architectural assumption sits in the path, place a milestone that exercises it first — typically a small spike or prototype milestone described as such. Failing fast is cheaper than failing late.
+3. Each slice leaves the repository in a working, test-passing state. No milestone should end with a half-migrated system or skipped tests.
+
+#### Rule 4: Split a milestone when any of these are true
+
+If any of the following hold, the milestone is too big and must be split before the plan is finalized:
+
+- It cannot be told as a single goal → work → result → proof story in one paragraph.
+- Its acceptance criteria require more than roughly three prose sentences to describe what a human will observe.
+- It touches two or more unrelated subsystems (for example, authentication and billing) that could each be verified on their own.
+- Its title contains "and", or naturally wants to (a strong signal it is two milestones).
+- It would plausibly take more than one focused implementation session to complete.
+
+Splitting may produce a prerequisite milestone (extract the foundational piece), a parallel milestone (separate independent subsystem), or two sequential vertical slices of the same behavior at different fidelity (a minimal end-to-end path first, then enrichment).
+
+#### Rule 5: Keep prototypes and parallel implementations as their own milestones
+
+When de-risking requires a prototype, a spike, or running a new path alongside an old one, give that work its own labeled milestone. State the criteria for promoting the prototype into the main path or discarding it, and ensure the next milestone retires the temporary scaffolding so the repository does not accumulate dead code.
+
+#### Applying the rules
+
+Before writing milestone prose, produce — at minimum, in your own working notes — a list of vertical slices in dependency order, each with a one-sentence statement of the user-visible behavior it delivers and the test or command that will prove it. Only then expand each slice into a full narrative milestone in the ExecPlan. If you cannot produce that list, you do not yet understand the work well enough to plan it; do more research first.
+
 ## Living plans and design decisions
 
 - ExecPlans are living documents. As you make key design decisions, update the plan to record both the decision and the thinking behind it. Record all decisions in the `Decision Log` section.
