@@ -1,6 +1,6 @@
 ---
 name: build-from-exec-plan
-description: "Build a repository-local feature by executing an existing ExecPlan. Use when the user explicitly asks to build a named plan, for example `use the build-from-exec-plan skill to build multi-cluster-profiles`. Resolve the plan by basename under `docs/exec-plans/`, treat the plan file and `docs/PLANS.md` as the source of truth, move the plan to `docs/exec-plans/active/` before implementation if needed, execute it milestone by milestone with verification, create a git commit after each completed milestone, and move the plan to `docs/exec-plans/completed/` when all milestones are finished."
+description: "Build a repository-local feature by executing an existing ExecPlan. Use when the user explicitly asks to build a named plan, for example `use the build-from-exec-plan skill to build multi-cluster-profiles`. Resolve the plan by basename under `docs/exec-plans/`, treat the plan file  as the source of truth, move the plan to `docs/exec-plans/active/` before implementation if needed, execute it milestone by milestone with verification, create a git commit after each completed milestone, and move the plan to `docs/exec-plans/completed/` when all milestones are finished."
 ---
 
 # Build From Exec Plan
@@ -20,7 +20,6 @@ Execute an existing repository-local ExecPlan from start to finish. This skill i
    - If the target is missing or ambiguous, stop and report that instead of guessing.
 
 2. Read the implementation sources of truth.
-   - Read `docs/PLANS.md` in full and follow it to the letter.
    - Read the target ExecPlan in full before making changes.
    - Read the repository-local docs and code that the plan directly references.
    - Treat the ExecPlan as authoritative for scope, order, and validation unless the user explicitly changes it.
@@ -63,7 +62,6 @@ Execute an existing repository-local ExecPlan from start to finish. This skill i
 
 - Do not create or rewrite an ExecPlan from scratch here; this skill assumes the plan already exists.
 - Do not treat a product spec, issue description, or chat message as a replacement for the ExecPlan once implementation begins.
-- Do not skip `docs/PLANS.md`, even if the target plan looks familiar.
 - Do not reorder milestones, widen scope, or invent acceptance criteria unless the plan is updated to reflect the change.
 - Do not move a plan to `completed/` while milestone work or acceptance remains unfinished.
 - Do not claim success with uncommitted milestone work.
